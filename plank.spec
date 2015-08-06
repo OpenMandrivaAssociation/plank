@@ -72,7 +72,9 @@ Development files for %{name}
 %setup -q
 
 %build
-%configure2_5x
+export CC=gcc
+export CXX=g++
+%configure
 %make LIBS="-lm"
 
 %install
