@@ -1,10 +1,10 @@
-%define major 0
+%define major 1
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
 Summary:	A port of docky to Vala
 Name:		plank
-Version:	0.9.1
+Version:	0.11.89
 Release:	1
 License:	GPLv3+
 Group:		Graphical desktop/GNOME
@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libbamf3)
 BuildRequires:	pkgconfig(libwnck-3.0)
+BuildRequires:  pkgconfig(libgnome-menu-3.0)
 BuildRequires:	libxml2-utils
 Requires:	bamf-daemon
 
@@ -30,11 +31,14 @@ A very simple dock written in Vala.
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog COPYING
 %{_bindir}/%{name}
+%{_libdir}/%{name}/
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/%{name}
-%{_datadir}/appdata/%{name}.appdata.xml
+#{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
+%{_datadir}/glib-2.0/schemas/*%{name}.gschema.xml
+%{_metainfodir}/%{name}.appdata.xml
 
 #----------------------------------------------------------------------------
 
@@ -46,7 +50,7 @@ Group:		System/Libraries
 Shared library for %{name}.
 
 %files -n %{libname}
-%{_libdir}/lib%{name}.so.%{major}*
+%{_libdir}/lib%{name}.so.%{major}{,.*}
 
 #----------------------------------------------------------------------------
 
@@ -73,13 +77,11 @@ Development files for %{name}
 %setup -q
 
 %build
-export CC=gcc
-export CXX=g++
 %configure
 %make LIBS="-lm"
 
 %install
-%makeinstall_std
+%make_install
 # Don't use apport
 rm -f %{buildroot}%{_sysconfdir}/apport/crashdb.conf.d/%{name}-crashdb.conf
 rm -f %{buildroot}%{_datadir}/apport/package-hooks/source_%{name}.py
