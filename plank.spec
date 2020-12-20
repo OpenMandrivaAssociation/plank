@@ -47,7 +47,7 @@ Group:		System/Libraries
 Shared library for %{name}.
 
 %files -n %{libname}
-%{_libdir}/lib%{name}.so.%{major}*
+#{_libdir}/lib%{name}.so.%{major}*
 
 #----------------------------------------------------------------------------
 
