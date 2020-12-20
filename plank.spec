@@ -1,4 +1,4 @@
-%define major 0
+%define major 1
 %define libname %mklibname %{name} %{major}
 %define devname %mklibname %{name} -d
 
@@ -31,11 +31,14 @@ A very simple dock written in Vala.
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog COPYING
 %{_bindir}/%{name}
+%{_libdir}/%{name}/
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/%{name}
 #{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
+%{_datadir}/glib-2.0/schemas/*%{name}.gschema.xml
+%{_metainfodir}/%{name}.appdata.xml
 
 #----------------------------------------------------------------------------
 
@@ -47,7 +50,7 @@ Group:		System/Libraries
 Shared library for %{name}.
 
 %files -n %{libname}
-#{_libdir}/lib%{name}.so.%{major}*
+%{_libdir}/lib%{name}.so.%{major}{,.*}
 
 #----------------------------------------------------------------------------
 
