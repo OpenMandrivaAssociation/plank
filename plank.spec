@@ -4,7 +4,7 @@
 
 Summary:	A port of docky to Vala
 Name:		plank
-Version:	0.9.1
+Version:	0.11.89
 Release:	1
 License:	GPLv3+
 Group:		Graphical desktop/GNOME
@@ -73,8 +73,8 @@ Development files for %{name}
 %setup -q
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 %configure
 %make LIBS="-lm"
 
