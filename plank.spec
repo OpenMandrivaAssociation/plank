@@ -33,7 +33,7 @@ A very simple dock written in Vala.
 %{_bindir}/%{name}
 %{_mandir}/man1/%{name}.1*
 %{_datadir}/%{name}
-%{_datadir}/appdata/%{name}.appdata.xml
+#{_datadir}/appdata/%{name}.appdata.xml
 %{_datadir}/applications/%{name}.desktop
 %{_datadir}/icons/hicolor/*/apps/%{name}.*
 
@@ -74,13 +74,11 @@ Development files for %{name}
 %setup -q
 
 %build
-#export CC=gcc
-#export CXX=g++
 %configure
 %make LIBS="-lm"
 
 %install
-%makeinstall_std
+%make_install
 # Don't use apport
 rm -f %{buildroot}%{_sysconfdir}/apport/crashdb.conf.d/%{name}-crashdb.conf
 rm -f %{buildroot}%{_datadir}/apport/package-hooks/source_%{name}.py
