@@ -21,6 +21,7 @@ BuildRequires:	pkgconfig(gobject-introspection-1.0)
 BuildRequires:	pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(libbamf3)
 BuildRequires:	pkgconfig(libwnck-3.0)
+BuildRequires:  pkgconfig(libgnome-menu-3.0)
 BuildRequires:	libxml2-utils
 Requires:	bamf-daemon
 
