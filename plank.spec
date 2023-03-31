@@ -5,7 +5,7 @@
 Summary:	A port of docky to Vala
 Name:		plank
 Version:	0.11.89
-Release:	1
+Release:	2
 License:	GPLv3+
 Group:		Graphical desktop/GNOME
 Url:		http://wiki.go-docky.com/index.php?title=Plank:Introduction
