@@ -8,7 +8,7 @@ Version:	0.11.89
 Release:	2
 License:	GPLv3+
 Group:		Graphical desktop/GNOME
-Url:		http://wiki.go-docky.com/index.php?title=Plank:Introduction
+Url:		https://wiki.go-docky.com/index.php?title=Plank:Introduction
 Source0:	https://launchpad.net/%{name}/1.0/%{version}/+download/%{name}-%{version}.tar.xz
 BuildRequires:	gnome-common
 BuildRequires:	intltool
