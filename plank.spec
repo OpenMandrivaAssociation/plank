@@ -10,6 +10,11 @@ License:	GPLv3+
 Group:		Graphical desktop/GNOME
 Url:		https://wiki.go-docky.com/index.php?title=Plank:Introduction
 Source0:	https://launchpad.net/%{name}/1.0/%{version}/+download/%{name}-%{version}.tar.xz
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gnome-common
 BuildRequires:	intltool
 BuildRequires:	vala
